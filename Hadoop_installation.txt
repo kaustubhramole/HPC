@@ -1,0 +1,239 @@
+7. Assignment: Installation and Configuration of Hadoop.
+
+First of all, you need to install Java since Hadoop is based on it. Then, you need to download and
+configure Hadoop File System itself. Also, I recommend you to have WinRAR installed because you will
+need to extract some files.
+
+Java Installation and Configuration
+
+Java Download
+
+As stated in Hadoop Java Versions:
+
+Apache Hadoop 3.3 and upper supports Java 8 and Java 11 (runtime only), but Hadoop compilation with
+Java 8 is mandatory.
+
+Apache Hadoop from 3.0.x to 3.2.x now supports only Java 8.
+
+Apache Hadoop from 2.7.x to 2.10.x support both Java 7 and 8.
+
+In this guide, I will explain how to install Hadoop 3.1.3, so you need Java 8.
+
+First of all, you need an Oracle account. If you don’t have one create it here. The procedure is very
+straightforward, you just need to complete a form and verify your email.
+
+After your Oracle account is created, you need to go to Windows Java 8 SE Development Kit official
+download site and download the x64 Installer:
+
+
+Then, you will be asked to accept (clicking on the checkbox) the Oracle Technology Network License
+Agreement for Oracle Java SE. Once the checkbox is marked, click the button to download the installer:
+After that, you will be asked to sign in with your Oracle account and then the installer download will start
+immediately:
+
+
+Java Installation
+
+Then, you must proceed with the Java installation. Just open the folder where installer is in and run it:
+
+Next, the installation wizard will be shown, click on Next in the following two views:
+
+
+The third view is to select the destination folder where SDK files will be stored. Here, you need to create
+the folder “Java” in the root path of your storage drive
+
+1.- Select Change:
+2.- In the Browse for Folder window, select your storage drive (In my case, the C: drive), click on Make
+
+New Folder button and assign the name “Java” to the new directory, then click OK:
+
+After that, you need to check if the destination folder has been updated. Once you have verified it, click
+on Next > and wait the installation to finish:
+
+When this view displays, the installation has been finished and you can close the wizard:
+After this, you will see that there are two folders named “Java” the one you’ve just created and the other
+one will be inside the “Program Files” folder in your storage drive, the latter was created by the Java
+Installation Wizard:
+
+You need to move the content of the folder created by the wizard (C:\Program Files\Java) to the Java
+folder you have created (C:\Java) to avoid problems latter when you configure the environment variables:
+
+After that, C:\Program Files\Java folder will be empty:
+Then, you need to remove C:\Program Files\Java. As you can see, this folder no longer exists:
+Java Environment Variable Configuration
+
+Now, you need to create an environment variable for Java. To do so, type “Edit the system environment
+variables” in the Windows search bar and select that option:
+In the “System properties” view click on Environment Variables to open that window:
+
+Now, in the “Environment Variables” window click on the New… button of the “User variables for
+<username>” panel. After that, “New User Variable” window will appear; there, you have to create
+the JAVA_HOME variable. In the Variable value field you need to write the path of the bin directory
+which is inside of the jdk folder. Recall that jdk folder is located inside of the Java folder you previously
+
+created in the root of your storage drive. In my case I had to write C:\Java\jdk1.8.0_321\bin:
+When you click on OK, the previous window will close and you can see the new variable at the top of
+the User variables for <username> list:
+
+Now, in the System variables panel, find the Path variable, select it and click on Edit... to open the Edit
+environment variable window:
+
+In the Edit environment variable window, click on New and write the path to the jdk folder, the exact
+same path you’ve just assign to the JAVA_HOME user variable. Then, click on OK:
+Now, be careful and click on OK in all windows related to the environment variables to save the changes;
+otherwise, you will need to repeat this process again.
+
+Java Installation Verification
+To check if Java was correctly installed, open the Windows Command Prompt. You can do this
+typing Command Prompt in the Windows search bar:
+
+
+
+
+Hadoop File System Configuration
+
+Hadoop Download
+
+Once Java is working properly, you need to download and configure Hadoop File System. To do so, go
+to Hadoop official downloads site:
+
+Click on Download tar.qz file
+
+Hadoop Extraction
+
+Once you have the .tar.gz file locally, extract it directly in the root of your storage drive (the same folder
+where you have previously created Java directory) with WinRAR Extract files... option. If you don't do it
+this way (i.e. extract it on the current folder and after that move the result manually) you may encounter
+with Destination Path Too Long error as I did:
+
+Just before extraction finishes, some error messages may be shown. If this occurs, don’t worry, just ignore
+them clicking on Close:
+
+Now, you have Java and Hadoop folders in the same location:
+
+Hadoop Configuration
+
+Now, you need to configure some Hadoop files. If you have downloaded the same Hadoop version as me,
+then you need to go to etc\hadoop folder within the previously extracted Hadoop directory (in my case,
+the complete path is C:\hadoop-3.1.3\etc\hadoop). Once there, open the following five files with your
+preferred text editor:
+core-site.xml, hadoop-env.cmd, hdfs-site.xml, mapred-site.xml, yarn-site.xml
+
+In the core-site.xml you need to set the default Hadoop File System location. Paste this chunk of code
+inside <configuration> tag:
+
+
+<property>
+<name>fs.defaultFS</name>
+<value>hdfs://localhost:9000</value>
+</property>
+
+In the hadoop-env.cmd file you need to provide the path to Java. This path was previously used when you
+set the JAVA_HOME environment variable. In my case, I set the JAVA_HOME value to
+
+: C:\Java\jdk1.8.0_321\bin; but now, \bin folder must be removed from the path, i.e. I had to
+use C:\Java\jdk1.8.0_321 path. You need to assign this path as JAVA_HOME value around line 25:
+
+
+Before you edit hdfs-site.xml file, you need to create some new folders. Go to Hadoop main directory in
+the root of your storage drive and create data folder inside of it:
+Now, create the datanode and namenode folders inside the new data directory:
+As you can see, datanode folder has the path C:\hadoop-3.1.3\data\datanode and namenode directory path
+is C:\hadoop-3.1.3\data\namenode.
+
+Once this is done, you need to provide this folders paths as properties in the hdfs-site.xml file. You can
+copy the following chunk directly into <configuration> tag, just be careful to adjust the datanode and
+
+namenode paths according to your machine locations:
+
+
+<property>
+<name>dfs.replication</name>
+<value>1</value>
+</property><property>
+<name>dfs.namenode.name.dir</name>
+<value>C:\hadoop-3.1.3\data\namenode</value>
+</property><property>
+<name>dfs.datanode.data.dir</name>
+<value>C:\hadoop-3.1.3\data\datanode</value>
+</property>
+
+
+In the mapred-site.xml file you need to set yarn as the MapReduce framework. Copy the following code
+inside <configuration> tag:
+
+
+<property>
+<name>mapreduce.framework.name</name>
+<value>yarn</value>
+</property>
+
+
+
+In the last file, yarn-site.xml, you need again to copy some code inside <configuration> tag:
+
+<property>
+<name>yarn.nodemanager.aux-services</name>
+<value>mapreduce_shuffle</value>
+</property><property>
+<name>yarn.nodemanager.auxservices.mapreduce.shuffle.class</name>
+<value>org.apache.hadoop.mapred.ShuffleHandler</value>
+</property>
+
+
+Hadoop Environment Variable Configuration
+Once all five files are properly edited, now you need to create an environment variable for Hadoop. Open
+the environment variables window as you did when you created JAVA_HOME variable (recall you can
+open the Environment Variables typing "Edit the system environment variables" in the Windows search
+bar) and create the HADOOP_HOME variable, assign the Hadoop bin folder path as its value (in my
+case: C:\hadoop-3.1.3\bin):
+
+Now, you need to edit the Path system variable to add paths to bin and sbin folders of Hadoop. Both
+folders are in the root directoryof Hadoop. So, bin path is the same you've just assigned
+to HADOOP_HOME variable (C:\hadoop-3.1.3\bin); sbin path, in my case will be C:\hadoop-3.1.3\sbin :
+Once done, be careful and click on OK in all windows related to the environment variables to save the
+changes; otherwise, you will need to repeat this process again.
+Fix of Hadoop ‘bin’ Folder
+
+Now, you need to fix some configuration files. To do it, you need to replace the Hadoop bin folder with
+another bin folder which already contains all the files properly configured. First, download this
+compressed file (https://drive.google.com/file/d/1zuT8G3D2JFkbkdv6fMhnhBOj8YSsgJc-/view). Then,
+you need to delete bin folder:
+
+After that, you must decompress hadoop 3.2.1 configuration files.zip in order to move the fixed bin folder
+to the Hadoop root location:
+
+Now, you can check the new and fixed bin folder is in Hadoop root:
+And that’s it, you now have Hadoop File System configured on your computer.
+
+Hadoop Installation Verification
+Finally, to check if Hadoop is working properly you need to run it. To do so, open a command prompt as
+administrator. Recall you can do this typing “Command Prompt” in the Windows search bar:
+Now, you need to go to the sbin directory inside hadoop folder; in my case, sbin directory is
+in C:\hadoop-3.1.3\sbin. Once you have typed this path press Enter:
+
+Then, write the command start-all.cmd and press Enter:
+
+You will see that several command prompts will open. If Hadoop is properly configured, then this four
+
+command prompts will remain open and running:
+
+hadoop datanode
+
+hadoop namenode
+
+yarn resourcemanager
+
+yarn nodemanager
+
+Congratulations, Hadoop is running!
+
+To kill this processes just close the command prompts
+
+
+
+
+
+
+
+

@@ -1,0 +1,86 @@
+3. Assignment: Creating a Warehouse Application in SalesForce.com.
+
+Step 1: Log into your Sandbox or Developers Organization.
+
+https://developer.salesforce.com/signup
+
+Click on setup → create → objects → new custom objects.
+
+Label: MySale
+
+Plural Label: MySales
+
+Object Name: MySale
+
+Record Name: MySale Description
+
+Data Type: Text
+
+Click Save.
+
+
+
+Step 2: Under MySale Go to Custom Field and Relationships → Click on New Custom Field
+
+Creating 1st Field:
+
+Select Data type as Auto Number → Next →
+
+Enter the detail Field Label: PROD_ID → Next → Next → Save & New
+
+Starting Number: 1001
+
+
+Creating 2nd Field:
+
+Select Data type as Auto Date → Next →
+
+Enter the detail Field Label: Date of Sale → Next → Next → Save & New
+
+
+Creating 3rd Field:
+
+Select Data type as Auto Number → Next →
+
+Enter the detail Field Label: Quantity Sold Length: 3 Decimal Places: 0 → Next →
+
+Next → Save & New
+
+
+Creating 4th Field:
+
+Select Data type as Auto Currency → Next →
+
+Enter the detail Field Label: Rate Length: 4 Decimal Places: 2
+
+Default Value: 10 → Next → Next → Save & New
+
+
+Creating 5th Field:
+
+Select Data type as Auto Currency → Next →
+
+Enter the detail Field Label: Quntity__c*Rate__c → Next → Next → Save
+
+
+
+Step 3:
+
+Now create a Tab
+
+Click on setup → create → tabs → new custom tab → choose MySale → Next → Next → Save.
+
+Step 4:
+
+Now create an App
+
+Click on setup → create → Apps → new → custom app → next → Enter My Shop for the App Label →
+
+Next → visible to all → click on save.
+
+
+On the top in the tab bar you can see the tab which has been created by you click on the tab you can see
+your object is opened just click on new button and provide the details mentioned.
+
+
+

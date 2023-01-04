@@ -1,0 +1,50 @@
+5. Assignment: Implementation of SOAP Web services in C# Application.
+
+Step 1: Open Visual Studio → Go to File → Select New → Web site → ASP.NET Empty Web Site
+
+Step 2: Right Click on website Menu → Add New Item → Web Service →
+
+Add following code
+[WebMethod]
+public int add(int a, int b)
+{
+return a + b;
+}
+
+
+Test your web service by pressing F5 button on Keyboard
+
+Click on add
+
+Copy URL of Web service ( having extension .asmx)
+
+Step 3: Right Click on website Menu → Add Web Reference → Paste the URL copied earlier
+
+
+Step 4: Now create application for addition and add following code
+
+Right Click on website Menu → Add New Item → Web Form
+
+Now Double Click on Add Button Type This Code 
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+public partial class _Default : System.Web.UI.Page
+{
+int n1, n2, res;
+protected void Page_Load(object sender, EventArgs e)
+{
+}
+protected void Button1_Click(object sender, EventArgs e)
+{
+localhost.WebService s = new localhost.WebService();
+n1 = Convert.ToInt32(TextBox1.Text);
+n2 = Convert.ToInt32(TextBox2.Text);
+res = s.add(n1, n2);
+Response.Write("Addition is " + res);
+}
+}

@@ -1,0 +1,83 @@
+4. Assignment: Creating an Application in SalesForce.com using Apex programming Language.
+
+
+
+Step 1: Log into your Sandbox or Developers Organization.
+
+https://developer.salesforce.com/signup
+
+Click on setup → create → objects → new custom objects.
+
+Enter Book for Label.
+
+Enter Books for Plural Label.
+
+Click Save.
+
+
+Step 2: Now let‘s create a custom field.
+
+In the custom field & relationship section of the Book Object click new.
+
+Select Number for the datatype & next.
+
+Enter Price for the field Label.
+
+Enter 16 in the length text box.
+
+Enter 2 in the decimal places & Next → Next → Save.
+
+
+Step 3: Click on setup → Develop → Apex classes & click new
+
+In the class Editor enter this class
+(Book__c is object API Name & Price__c is custom field API Name)
+
+
+
+public class MyHelloWorld
+{
+public static void applyDiscount(Book__c[] Books)
+{
+for(Book__c b:Books)
+{b.Price__c*=0.9;}
+}
+}
+
+
+
+Step 4: Add a Trigger
+
+A trigger is a piece of code that can execute objects before or after specific data manipulation language
+events occurred.
+
+Click on setup → create → objects → click the object you have created ex:
+
+Book Scroll down you can see Trigger Click on New
+
+In the trigger Editor enter this class
+
+trigger HelloWorldTrigger on Book__c(before insert)
+
+
+{
+Book__c[] Books=Trigger.new;
+MyHelloWorld.applyDiscount(Books);
+}
+
+
+Step 5: Now create a Tab
+
+Click on setup → create → tabs → new custom tab → choose Book→ Next → Next → Save.
+
+Step 6: Now create an App
+
+Click on setup → create → Apps → new → custom app → next → Enter My Book Shop for the App
+
+Label → Next → visible to all → click on save.
+
+Step 7: Now Insert a Book
+
+Click on My Book Shop → Books → new → insert a name for Book → insert price for that book → click
+
+on save.

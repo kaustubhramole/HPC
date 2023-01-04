@@ -1,0 +1,26 @@
+2. Assignment: Downloading and Installing Cloud Analyst
+
+
+Step 1:
+
+
+Download Cloud Analyst NetBeans project from the below mentioned link
+https://sourceforge.net/projects/cloudanalystnetbeans/
+
+
+Step 2:
+
+
+To run the cloud analyst got to NetBeans File → open project → browse the unzipped folder
+
+
+Step 3:
+
+
+Browse the unzipped folder that you have downloaded.
+
+Step 4:
+
+Open-source package folder inside which open cloudsim.ext.gui
+right click on the gui.main.java and click run
+

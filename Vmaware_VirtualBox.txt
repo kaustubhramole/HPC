@@ -1,0 +1,69 @@
+6. Assignment: Implementation of Para-Virtualization using VM Ware ‘s Workstation/
+
+Oracle‘s Virtual Box and Guest O.S.
+
+Download and Install VirtualBox
+
+
+To download the VirtualBox, follow the instructions below.
+
+
+Step 1: To download the latest version of VirtualBox, visit the official VirtualBox website in your web
+browser.
+
+Step 2: Now, download the VirtualBox from here.
+
+Step 3: Navigate the folder where you have downloaded your VirtualBox and double-click on the
+downloaded "VirtualBox" file to run it.
+
+Step 4: "Oracle VM VirtualBox 6.1.6 Setup" window will appear on the screen and click on the "Next"
+button to proceed.
+
+Step 5: Choose the location where you want to install the VirtualBox and click on the "Next" button to
+proceed.
+
+Step 6: Choose the options as per your choice and click on the "Next" button.
+
+Step 7: Click on the Yes button and then the "Install" button.
+Download Ubuntu
+
+
+
+Follow the instructions below to download the Ubuntu ISO file.
+
+Step 1: To download the latest version of Ubuntu, i.e., Ubuntu, visit the official Ubuntu website in your
+web browser.
+
+Step 2: By clicking on the "Download" button, you can download the latest version of Ubuntu, i.e.,
+Ubuntu 20.04 LTS (long term support).
+
+
+Creating a Virtual Machine
+Now, it is time to create a Virtual Machine. Follow the instructions below to proceed.
+
+
+
+
+Step 1: Open VirtualBox and click on the "New" button.
+
+Step 2: Choose a name for your virtual machine with its location. Based on the name you entered,
+VirtualBox will try to predict the "Type" and "Version". Otherwise, from the drop-down menu, select
+"Linux" as the type and "Ubuntu" as the version and click on the "Next" button.
+
+Step 3: With the help of the slider, choose the amount of memory (RAM) to be allocated to the virtual
+machine. (The recommended memory size is 1024 MB (1 GB). Please note that this memory will only be
+used while using a virtual machine).
+
+Step 4: Select "Create a virtual hard disk now" option and click on the "Create" button to proceed.
+
+Step 5: Choose the "VDI (VirtualBox Disk Image)" option and click "Next".
+
+Step 6: Again, click on the "Next" button.
+
+Step 7: Select the amount of space for your virtual machine and click the "Create" button. (This will be
+used for your operating system which is going to be installed, so give as much space as possible).
+
+Step 8: When you click on the "Close" button of your virtual machine window (at the top right of the
+window, just like you would close any other window on your system), VirtualBox asks you whether you
+want to "save" or "power off" the VM. (As a shortcut, you can also press the Host key together with "Q".)
+

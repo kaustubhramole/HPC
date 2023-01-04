@@ -1,0 +1,25 @@
+1. Assignment: Download, Install and do the Configuration of cloudsim.
+
+
+Step 1: To Install Ellipse IDE, Go to Website → www.eclipse.org → Then Click Download file for
+x86_64
+
+→ Extract the file → open to Install Ellipse IDE → Select for Java Developer to install
+
+Now we in install jar files of cloudsim
+
+Step 2: Go To https://code.google.com/archive/p/cloudsim/downloads
+
+Select cloudsim 3.0.3 tar.gz file & download it and extract it.
+
+Step 3: Before importing jar files place jar files in same project folder
+
+Open Ellipse IDE → Click on File → New → Project → Java Project → Name the project & click on
+
+next button → Select Libraries → Click on Add Jars → Select cloudsim folder and go to jar folder select
+
+jar files Done
+
+Step 4: To add jar files in existing project do as follows Right Click on Module Name → Select Build
+
+Path Option or go to properties → Go to Libraries → Click on class path → do as step 3
